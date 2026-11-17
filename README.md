@@ -24,6 +24,14 @@ python file_crypto.py decrypt --algo fernet -k fernet.key sample.txt.enc
 - `--algo aes`로 바꾸면 AES-256-GCM을 씁니다. AES 키는 `genkey --algo aes`로 따로 만들어야 합니다.
 - `-k` 대신 `-p "비밀번호"`를 쓰면 PBKDF2-HMAC-SHA256으로 키를 만들어 씁니다.
 
+## 예시 코드
+
+`examples/encrypt_example.py`는 `file_crypto.py`의 함수를 직접 import 해서 Fernet·AES-GCM 각각 키 파일 방식과 비밀번호 방식으로 암호화→복호화→원본 비교를 해 봅니다. 잘못된 키·비밀번호가 거부되는지도 확인합니다. 임시 폴더에서만 작업하므로 저장소에 파일이 남지 않습니다.
+
+```bash
+python examples/encrypt_example.py
+```
+
 ## 알고리즘
 
 | 방식 | 구성 | 무결성 검증 |
